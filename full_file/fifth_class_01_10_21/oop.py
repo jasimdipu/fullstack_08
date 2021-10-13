@@ -1,0 +1,1 @@
+# oop-> class, oop principles-> abstraction, encapsulation, inheritance, polymorphism

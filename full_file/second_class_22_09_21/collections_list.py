@@ -49,3 +49,9 @@ print(l.count(200))
 # comprehension
 l1 = [i for i in range(10)]
 print(l1)
+
+
+nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+print(nested_list[0])
+print(nested_list[0][1])
