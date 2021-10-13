@@ -7,7 +7,6 @@ class StudentImpl(Student):
         self.name = name
         self.dept = dept
 
-
     def getName(self):
         return self.name
 
@@ -22,7 +21,7 @@ class StudentImpl(Student):
 
 
 # student Implementation class object
-student = StudentImpl("Tarek", "IT")
-print(student.name, student.dept)
-print(student.getName())
-print(student.getDept())
+# student = StudentImpl("Tarek", "IT")
+# print(student.name, student.dept)
+# print(student.getName())
+# print(student.getDept())
