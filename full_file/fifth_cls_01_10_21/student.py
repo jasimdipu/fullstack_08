@@ -1,8 +1,9 @@
 # abstraction
 from abc import ABC, abstractmethod, abstractproperty
 
+
 class Student(ABC):
-    
+
     @abstractmethod
     def getName(self):
         pass
@@ -11,7 +12,6 @@ class Student(ABC):
     def setName(self, name):
         pass
 
-
     @abstractmethod
     def getDept(self):
         pass
@@ -19,7 +19,3 @@ class Student(ABC):
     @abstractmethod
     def setDept(self, dept):
         pass
-
-
-
-    
