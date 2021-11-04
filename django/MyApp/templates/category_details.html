@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+{% block content %}
+    <div class="container">
+        <div>
+            <h3>Category Details for {{ category.category_name }}</h3>
+        </div>
+        <div class="row">
+            <div>{{ category.id }}</div>
+            <div>{{ category.category_name }}</div>
+            <div>{{ category.description }}</div>
+        </div>
+    </div>
+
+
+{% endblock %}
