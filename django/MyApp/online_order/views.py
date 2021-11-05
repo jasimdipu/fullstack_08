@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Category, Customer, Product, Order
+from django.shortcuts import render, redirect
+from .models import Category, Product, Order, Customer
+from .forms import OrderForms
 
 
 # Create your views here.
@@ -27,6 +27,8 @@ def show_category(request, pk):
         "category": category,
     }
 
+    print(category)
+
     return render(request, "category_details.html", context=context)
 
 
@@ -35,8 +37,25 @@ def about(request):
 
 
 def order(request):
-    return render(request, "order.html")
+    form = OrderForms()
+
+    if request.method == "POST":
+        form = OrderForms(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('order-list')
+
+    context = {
+        "forms": form,
+    }
+    return render(request, "order.html", context=context)
 
 
 def order_list(request):
-    return render(request, "orderlist.html")
+    order_lists = Order.objects.all()
+
+    context = {
+        'orders': order_lists
+    }
+
+    return render(request, "orderlist.html", context=context)

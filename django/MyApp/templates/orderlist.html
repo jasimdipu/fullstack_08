@@ -1,6 +1,47 @@
-{%extends "master.html" %}
-{%block content%}
-<div class="row">
-    <h3>Order List</h3>
-</div>
-{%endblock%}
+{% extends "master.html" %}
+{% block content %}
+    <div class="row">
+        <h3>Order List</h3>
+        <div class="container" style="align-content: center">
+            <div class="row w-75 ml-5" style="margin-left: 10%; margin-top: 3%;">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Customer name</th>
+                        <th scope="col">Customer Phone</th>
+                        <th scope="col">Customer Email</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Delivery status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <th scope="row">{{ order.id }}</th>
+                            <td>{{ order.customer_id.name }}</td>
+                            <td>{{ order.customer_id.phone }}</td>
+                            <td>{{ order.customer_id.email }}</td>
+                            <td>{{ order.product_id.product_name }}</td>
+                            <td>{{ order.product_id.product_price }}</td>
+                            <td>{{ order.quantity }}</td>
+                            <td>{{ order.delivery }}</td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Data Action">
+                                    <a class="btn btn-primary" href="">Show</a>
+                                    <a class="btn btn-secondary">Edit</a>
+                                    <a class="btn btn-danger">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
