@@ -1,0 +1,7 @@
+{% extends "master.html" %}
+{% block content %}
+    {{ order.customer_id.name }}
+    {{ order.product_id.product_name }}
+    {{ order.delivery_status }}
+    {{ order.quantity }}
+{% endblock %}

@@ -8,14 +8,17 @@
         <div class="row">
             <form action="#" method="post">
                 {% csrf_token %}
+                <label for="exampleInputEmail1" class="form-label">{{ form.customer_id.label }}</label>
+                {{ form.customer_id }}
+                <label for="exampleInputEmail1" class="form-label">{{ form.product_id.label }}</label>
+                <div class="form-control">{{ form.product_id }}</div>
+                <label for="exampleInputEmail1" class="form-label">{{ form.quantity.label }}</label>
+                <div class="form-control">{{ form.quantity }}</div>
+                <label for="exampleInputEmail1" class="form-label">{{ form.delivery.label }}</label>
+                <div class="form-control">{{ form.delivery }}</div>
 
-                {% for form in forms %}
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">{{ form.name }}</label>
-                        <div class="form-control">{{ form }}</div>
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-                    </div>
-                {% endfor %}
+{#                {{ form }}#}
+
                 <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

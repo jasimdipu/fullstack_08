@@ -46,7 +46,7 @@ def order(request):
             return redirect('order-list')
 
     context = {
-        "forms": form,
+        "form": form,
     }
     return render(request, "order.html", context=context)
 
@@ -59,3 +59,43 @@ def order_list(request):
     }
 
     return render(request, "orderlist.html", context=context)
+
+
+def update_order(request, pk):
+    order = Order.objects.get(id=pk)
+    form = OrderForms(instance=order)
+
+    if request.method == 'POST':
+        form = OrderForms(request.POST, instance=order)
+        if form.is_valid():
+            form.save()
+            return redirect('order-list')
+
+    context = {
+        'form': form
+    }
+    return render(request, 'order.html', context=context)
+
+
+def show_order(request, pk):
+    order_details = Order.objects.get(id=pk)
+
+    context = {
+        'order': order_details,
+    }
+
+    return render(request, 'order_details.html', context=context)
+
+
+def delete_order(request, pk):
+    item = Order.objects.get(id=pk)
+
+    if request.method == 'POST':
+        item.delete()
+        return redirect('order-list')
+
+    context = {
+        'item': item,
+    }
+
+    return render(request, 'delete.html', context=context)

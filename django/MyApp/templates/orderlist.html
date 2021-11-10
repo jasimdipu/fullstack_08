@@ -31,9 +31,9 @@
                             <td>{{ order.delivery }}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Data Action">
-                                    <a class="btn btn-primary" href="">Show</a>
-                                    <a class="btn btn-secondary">Edit</a>
-                                    <a class="btn btn-danger">Delete</a>
+                                    <a class="btn btn-primary" href="{% url 'order_details' order.id %}">Show</a>
+                                    <a class="btn btn-secondary" href="{% url 'update_order' order.id %}">Edit</a>
+                                    <a class="btn btn-danger" href="{% url 'delete_order' order.id %}">Delete</a>
                                 </div>
                             </td>
                         </tr>
