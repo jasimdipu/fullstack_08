@@ -1,0 +1,46 @@
+{% extends 'master.html' %}
+{% block content %}
+
+<div class="container" style="max-width: 50%;">
+
+    <div class="row mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h4>User Registration Form</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <form action="#" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">User name</label>
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                {{ form.email }}
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                {{ form.password1 }}
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Again Password</label>
+                {{ form.password2 }}
+            </div>
+
+            <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% for msg in messages %}
+        <p style="color: red">{{ msg }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}
